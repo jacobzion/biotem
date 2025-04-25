@@ -5,7 +5,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-openai.api_key = "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"  # Use free-tier key
+openai.api_key = openai.environ.get('OPENAI_API_KEY')  # Use free-tier key
 
 @app.route('/chat', methods=['POST'])
 def chat():
